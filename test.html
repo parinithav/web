@@ -1,0 +1,35 @@
+<html>
+	<body>
+		<input type = "text">
+		<button type = "submit" onclick="check()">submit</button>
+		<p></p>
+		<script>
+		function check(){
+			var str = document.querySelector("input").value;
+			var num = parseInt(str);
+			if(num){
+				document.querySelector("p").textContent = "";
+				document.querySelector("p").insertAdjacentHTML("beforeend",Number(num.toString().split("").reverse().join("")));
+				}
+				else{
+				str = str.toLowerCase();
+				var arr = str.split("");
+				var i;
+				for(i=0;i<arr.length;i++){
+				if(arr[i]=='a' ||arr[i]=='e' ||arr[i]=='i' ||arr[i]=='o' ||arr[i]=='u' ){ 
+				i++;
+				document.querySelector("p").textContent="";
+				document.querySelector("p").insertAdjacentHTML("beforeend",'\ninput is'+ str + '\nleftmost vowel is' + arr[i-1]; + '\nin position' +i+'\n');
+				break;
+				}
+				}
+			}
+		}
+		</script>
+		</head>
+	<body style="background:white" onload="start()">
+<center>
+<p style="margin-top:250px" id="display"></p>
+</center>
+</body>
+</html>
